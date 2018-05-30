@@ -14,7 +14,7 @@ class basesystem::ntp {
         notify  => Service["ntp"],
     }
     file { 'leap-seconds.list':
-        path    => '/etc/leap-seconds.list',
+        path    => '/var/lib/ntp/leap-seconds.list',
         ensure  => file,
         mode    => '644',
         owner   => 'root',
