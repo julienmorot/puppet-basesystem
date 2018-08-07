@@ -19,5 +19,9 @@ What it does :
 
 ## Usage
 
+```
 node 'master' {
     include basesystem
+}
+```
+
