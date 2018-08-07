@@ -13,6 +13,7 @@ class basesystem::ntp {
         source  => "puppet:///modules/basesystem/ntp.conf",
         notify  => Service["ntp"],
     }
+
     file { 'leap-seconds.list':
         path    => '/var/lib/ntp/leap-seconds.list',
         ensure  => file,
@@ -23,6 +24,13 @@ class basesystem::ntp {
         source  => "puppet:///modules/basesystem/leap-seconds.list",
         notify  => Service["ntp"],
     }
+
+	file_line { 'apparmor_leap-seconds.list':
+  		ensure => present,
+  		path   => '/etc/apparmor.d/usr.sbin.ntpd',
+  		line   => "  /var/lib/ntp/leap-seconds.list r,",
+  		after  => "  /var/lib/ntp/\*drift rw,",
+	}
 
     service { $service_name :
         name      => $service_name,
