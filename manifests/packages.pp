@@ -6,7 +6,7 @@ class basesystem::packages {
     mode    => '0644',
     owner   => 'root',
     group   => 'root',
-    source  => "puppet:///modules/basesystem/vimrc"
+    source  => "puppet:///modules/${module_name}/vimrc"
   }
 
     package { "screen": ensure => installed }

@@ -5,7 +5,7 @@ class basesystem::bash {
         mode    => '0644',
         owner   => 'root',
         group   => 'root',
-        source  => "puppet:///modules/basesystem/bash_history.sh"
+        source  => "puppet:///modules/${module_name}/bash_history.sh"
     }
 }
 

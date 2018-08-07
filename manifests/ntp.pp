@@ -10,7 +10,7 @@ class basesystem::ntp {
         owner   => 'root',
         group   => 'root',
         require => Package['ntp'],
-        source  => "puppet:///modules/basesystem/ntp.conf",
+        source  => "puppet:///modules/${module_name}/ntp.conf",
         notify  => Service["ntp"],
     }
 
@@ -21,7 +21,7 @@ class basesystem::ntp {
         owner   => 'root',
         group   => 'root',
         require => Package['ntp'],
-        source  => "puppet:///modules/basesystem/leap-seconds.list",
+        source  => "puppet:///modules/${module_name}/leap-seconds.list",
         notify  => Service["ntp"],
     }
 
