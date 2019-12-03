@@ -12,5 +12,7 @@ class basesystem::packages {
     package { "screen": ensure => installed }
     package { "htop": ensure => installed }
 
+    package { "snapd": ensure => purged }
+
 }
 
